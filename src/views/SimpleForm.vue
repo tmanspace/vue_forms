@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create an event</h1>
-    <form>
+    <form @submit.prevent="sendForm">
 
       <BaseSelect
         :options="categories"
@@ -21,24 +21,13 @@
 
       <h3>Are pets allowed?</h3>
       <div>
-        <BaseRadio
-        v-model="event.pets"
-        :value="1"
-        label="Yes"
-        name="pets"
-       />
+        <BaseRadioGroup
+          v-model='event.pets'
+          name="pets"
+          :options="petOptions"
+          vertical
+        />
       </div>
-
-      <div>
-       <BaseRadio
-        v-model="event.pets"
-        :value="0"
-        label="No"
-        name="pets"
-       />
-      </div>
-
-      {{event}}
 
       <h3>Extras</h3>
       <div>
@@ -62,6 +51,8 @@
 
 <script>
 import BaseInput from '../components/BaseInput.vue'
+import axios from 'axios'
+
 export default {
   components: { BaseInput },
   data () {
@@ -85,7 +76,18 @@ export default {
           catering: false,
           music: false
         }
-      }
+      },
+      petOptions: [
+        { label: 'Yes', value: 1 },
+        { label: 'No', value: 0 }
+      ]
+    }
+  },
+  methods: {
+    sendForm() {
+      // axios.post(uri, this.event)
+      // .then()
+      // .catch()
     }
   }
 }
