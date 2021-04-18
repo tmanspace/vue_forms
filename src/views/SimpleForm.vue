@@ -27,6 +27,7 @@
           :options="petOptions"
           vertical
         />
+
       </div>
 
       <h3>Extras</h3>
@@ -51,6 +52,7 @@
 
 <script>
 import BaseInput from '../components/BaseInput.vue'
+
 import axios from 'axios'
 
 export default {
