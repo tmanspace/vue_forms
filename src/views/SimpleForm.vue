@@ -11,13 +11,13 @@
 
       <h3>Name & describe your event</h3>
 
-      <base-input label="Title" v-model="event.title" type="text" />
+      <BaseInput label="Title" v-model="event.title" type="text" />
 
-      <base-input v-model="event.description" label="Description" type="text" />
+      <BaseInput v-model="event.description" label="Description" type="text" />
 
       <h3>Where is your event?</h3>
 
-      <base-input v-model="event.location" label="Location" type="text" />
+      <BaseInput v-model="event.location" label="Location" type="text" />
 
       <h3>Are pets allowed?</h3>
       <div>
@@ -32,13 +32,17 @@
 
       <h3>Extras</h3>
       <div>
-        <input type="checkbox" v-model="event.extras.catering" class="field" />
-        <label>Catering</label>
+        <BaseCheckbox
+          v-model="event.extras.catering"
+          label="Catering"
+        />
       </div>
 
       <div>
-        <input type="checkbox" v-model="event.extras.music" class="field" />
-        <label>Live music</label>
+        <BaseCheckbox
+          v-model="event.extras.music"
+          label="Live music"
+        />
       </div>
 
       <button class="button -fill-gradient" type="submit">Submit</button>
